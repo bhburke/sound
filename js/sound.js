@@ -5,9 +5,9 @@ var _sound_index;
 $(document).ready(function(){
 
 	$("#button img").mousedown(function() {
-   	 	$(this).attr("src", "speaker_icon_inverted.png");
+   	 	$(this).attr("src", "/images/speaker_icon_inverted.png");
 		}).mouseup(function() {
-    	$(this).attr("src", "speaker_icon.png");
+    	$(this).attr("src", "/images/speaker_icon.png");
 	});
 
 

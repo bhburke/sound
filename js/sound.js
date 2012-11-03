@@ -12,6 +12,8 @@ $(document).ready(function(){
 
 
 	$("#button").click(function(){
+		soundManager.unload('sound');
+		soundManager.destroySound('sound');
 		play_new_sound();
 
 	});

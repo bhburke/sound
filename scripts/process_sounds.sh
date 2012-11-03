@@ -2,7 +2,7 @@ random_string() {
   echo "$(date +%s%N)$RANDOM" | md5sum | awk '{print $1}' 
 }
 
-find /var/www/unprocessed_sounds/ * -type f | while read -r file
+find /var/www/unprocessed_sounds/ -type f | while read -r file
 do
   (
   EXTENSION=${file##*.};

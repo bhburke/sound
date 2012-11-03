@@ -13,10 +13,9 @@ $(document).ready(function(){
 
 
 	$("#button").click(function(){
-		soundManager.unload('sound');
-		soundManager.destroySound('sound');
-		get_new_sound();
+		
 		play_sound();
+		get_new_sound();
 		_sound_index=_sound_index+1;
 
 	});
@@ -27,10 +26,8 @@ $(document).ready(function(){
     $("#button img").on('touchend',function() {
 
     	$(this).attr("src", "images/speaker_icon.png");
-           soundManager.unload('sound');
-		soundManager.destroySound('sound');
-		get_new_sound();
-		play_sound();
+        play_sound();
+        get_new_sound();
 		_sound_index=_sound_index+1;            
 	});
 	init_sounds();
@@ -62,6 +59,7 @@ function get_new_sound(){
 		console.log(response);
 		if(response.success){
 			sound_url=response.url;
+			make_sound_object();
 			
 		}
 		else{
@@ -72,7 +70,7 @@ function get_new_sound(){
 	});
 };
 
-function play_sound(){
+function make_sound_object(){
 	soundManager.createSound({
 		id: 'sound',
 		url: sound_url,
@@ -81,5 +79,8 @@ function play_sound(){
 			soundManager.destroySound('sound');
 		}
 	});
+}
+
+function play_sound(){
 	soundManager.play('sound');
 }

@@ -42,12 +42,14 @@ function get_new_sound(){
 			index:_sound_index
 		}
 
-	}).success(function(url){
-		return url;
-	}).fail(function(r){
-		console.log(r);
-		return "";
-	});
+	}).success(function(response){
+		if(response.success){
+			return response.url;
+		}
+		else{
+			console.log(response.error);
+			return "";
+		}
 };
 
 function play_sound(sound_url){

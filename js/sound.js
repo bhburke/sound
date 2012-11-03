@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 
 	$("#button").click(function(){
-
+		get_new_sound();
 	});
 
 	init_sounds();

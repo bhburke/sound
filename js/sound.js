@@ -75,6 +75,7 @@ function make_sound_object(){
 	soundManager.createSound({
 		id: sound_id,
 		url: sound_url,
+		autoLoad:true,
 		onfinish:function(){
 			soundManager.unload(sound_id);
 			soundManager.destroySound(sound_id);

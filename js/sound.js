@@ -50,7 +50,8 @@ function get_new_sound(){
 			console.log(response.error);
 			return "";
 		}
-});
+	});
+};
 
 function play_sound(sound_url){
 	soundManager.createSound({

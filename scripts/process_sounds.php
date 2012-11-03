@@ -6,8 +6,21 @@ include_once("db_connect.php");
 opendb();
 
 function process_file($filename) {
+	$query = "SELECT id FROM `sounds` WHERE `url` = '".$filename."'";
+	$result = mysql_query($query);
+
+	if (!$result) {
+		die('Invalid query: ' . mysql_error());
+	}
+
+	if (mysql_num_rows($result) > 0) {
+		// Already added this
+		return;
+	}
+
 	$query = "INSERT INTO `sounds` (`url`) VALUES ('".$filename."')";
 	$result = mysql_query($query);
+	
 	if ($result) {
 		echo "Processed : ".$filename."<br>\n";
 	} else {
@@ -36,6 +49,6 @@ function process_directory($path) {
 	}
 }
 
-process_directory("/var/www/unprocessed_sounds");
+process_directory("/var/www/sounds");
 
 ?>

@@ -1,11 +1,15 @@
-echo "Adding sounds to database";
-php process_sounds.php
+random_string() { 
+  echo "$(date +%s%N)$RANDOM" | md5sum | awk '{print $1}' 
+}
 
 find /var/www/unprocessed_sounds/ * -type f | while read -r file
 do
   (
-  echo "Moving $file to /var/www/sounds/";
-  mv "$file" "/var/www/sounds/";
+  EXTENSION=${file##*.};
+  newname=$(random_string)".$EXTENSION";
+  echo "Moving $file to $newname to /var/www/sounds/";
+  mv "$file" "$newname";
+  mv "$newname" "/var/www/sounds/"
   )
 done
 

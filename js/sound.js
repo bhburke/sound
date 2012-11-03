@@ -56,7 +56,6 @@ function get_new_sound(){
 		}
 
 	}).success(function(response){
-		console.log(response);
 		if(response.success){
 			sound_url=response.url;
 			make_sound_object();

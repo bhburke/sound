@@ -83,7 +83,7 @@ function make_sound_object(){
 }
 
 function destroy_sounds(){
-	var sound_id = 'sound'+_sound_index-1;
+	var sound_id = 'sound'+(_sound_index-1);
 	soundManager.unload(sound_id);
 	soundManager.destroySound(sound_id);
 }

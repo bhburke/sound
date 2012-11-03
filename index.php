@@ -12,7 +12,7 @@
 <div id="content">
 <div id="text">Listen</div>
 <div id="button">
-<img src="speaker_icon.png">
+<img src="/images/speaker_icon.png">
 </div>
 </div>
 

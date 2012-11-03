@@ -12,9 +12,7 @@ $(document).ready(function(){
 
 
 	$("#button").click(function(){
-		var new_url=get_new_sound();
-		play_sound(new_url);
-		_sound_index=_sound_index+1;
+		play_new_sound();
 
 	});
 
@@ -34,19 +32,24 @@ function init_sounds(){
 
 }
 
-function get_new_sound(){
+function play_new_sound(){
 	$.ajax({
 		url:"/scripts/get_sound",
+		dataType:"json",
 		data:{
 			seed:_random_seed,
 			index:_sound_index
 		}
 
 	}).success(function(response){
+		console.log(response);
 		if(response.success){
-			return response.url;
+			console.log('success!');
+			play_sound(response.url);
+			_sound_index=_sound_index+1;
 		}
 		else{
+			console.log(response.success);
 			console.log(response.error);
 			return "";
 		}

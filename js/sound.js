@@ -12,7 +12,10 @@ $(document).ready(function(){
 
 
 	$("#button").click(function(){
-		get_new_sound();
+		var new_url=get_new_sound();
+		play_sound(new_url);
+		_sound_index=_sound_index+1;
+
 	});
 
 	init_sounds();
@@ -40,9 +43,8 @@ function get_new_sound(){
 		}
 
 	}).success(function(url){
-		console.log(url);
 		return url;
-	}).failure(function(r){
+	}).fail(function(r){
 		console.log(r);
 		return "";
 	});

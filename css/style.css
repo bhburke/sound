@@ -1,0 +1,21 @@
+#content{
+	position:relative;
+	height:800px;
+	width:800px;
+	margin:25 auto;
+	text-align: center;
+}
+
+#button{
+	position:relative;
+	margin:0 auto;
+	cursor:pointer;
+
+}
+
+#text{
+	font-family: 'Helvetica';
+	font-weight:bold;
+	font-size: 72px;
+	margin-bottom:120px;
+}

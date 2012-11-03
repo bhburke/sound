@@ -17,7 +17,17 @@ $(document).ready(function(){
 		play_new_sound();
 
 	});
+	$("#button img").on('touchstart',function() {
+   	 	$(this).attr("src", "images/speaker_icon_inverted.png");
+                        });
+                  
+    $("#button img").on('touchend',function() {
 
+    	$(this).attr("src", "images/speaker_icon.png");
+           soundManager.unload('sound');
+		soundManager.destroySound('sound');
+		play_new_sound();            
+	});
 	init_sounds();
 });
 

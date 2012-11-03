@@ -5,6 +5,8 @@ var sound_url;
 
 $(document).ready(function(){
 
+	init_sounds();
+
 	$("#button img").mousedown(function() {
    	 	$(this).attr("src", "/images/speaker_icon_inverted.png");
 		}).mouseup(function() {
@@ -22,7 +24,7 @@ $(document).ready(function(){
     	$(this).attr("src", "images/speaker_icon.png");
       	 onButtonPress();          
 	});
-	init_sounds();
+	
 });
 function onButtonPress(){
 	destroy_sounds();
@@ -41,7 +43,7 @@ function init_sounds(){
 		useHTML5Audio:true,
 		preferFlash:false
 	});
-
+	get_new_sound();
 }
 
 function get_new_sound(){
